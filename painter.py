@@ -2,7 +2,7 @@ import os
 import cv2
 import random
 
-import utils
+#import utils
 import loss
 from networks import *
 import morphology
