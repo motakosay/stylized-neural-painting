@@ -259,8 +259,8 @@ def patches2img(img_batch, m_grid, to_numpy=True):
     # input img_batch: m_grid**2, 3, s, s (tensor)
     # output img: s*m_grid, s*m_grid, 3 (np.float32)
 
+    print(img_batch.shape)
     _, _, s, _ = img_batch.shape
-    print(_, _, s, _)
     img = torch.zeros([s*m_grid, s*m_grid, 3])
 
     for y_id in range(m_grid):
