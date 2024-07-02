@@ -192,8 +192,6 @@ class PainterBase():
 
     def initialize_params(self):
 
-        print(self.m_grid)
-        """
         self.x_ctt = np.random.rand(
             self.m_grid*self.m_grid, self.m_strokes_per_block,
             self.rderr.d_shape).astype(np.float32)
@@ -208,7 +206,6 @@ class PainterBase():
             self.m_grid*self.m_grid, self.m_strokes_per_block,
             self.rderr.d_alpha).astype(np.float32)
         self.x_alpha = torch.tensor(self.x_alpha).to(device)
-        """
 
     def stroke_sampler(self, anchor_id):
 
