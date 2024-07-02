@@ -192,7 +192,7 @@ class PainterBase():
 
     def initialize_params(self):
 
-        print(self.m_strokes_per_block)
+        print(self.rderr.d_shape)
 
         """
 
