@@ -254,7 +254,7 @@ def img2patches(img, m_grid, s, to_tensor=True):
         img_batch = torch.tensor(img_batch)
 
     #return img_batch
-    return patch_
+    return patch_ , img
 
 
 def patches2img(img_batch, m_grid, to_numpy=True):
