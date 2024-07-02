@@ -150,6 +150,7 @@ def set_requires_grad(nets, requires_grad=False):
         nets (network list)   -- a list of networks
         requires_grad (bool)  -- whether the networks require gradients or not
     """
+    print(nets)
     if not isinstance(nets, list):
         print("yes!")
         """
