@@ -243,6 +243,7 @@ def img2patches(img, m_grid, s, to_tensor=True):
 
     img = cv2.resize(img, (m_grid * s, m_grid * s))
     img_batch = np.zeros([m_grid ** 2, 3, s, s], np.float32)
+    patch_ = img[0:128, 0:128, :]
     for y_id in range(m_grid):
         for x_id in range(m_grid):
             patch = img[y_id * s:y_id * s + s,
@@ -252,7 +253,8 @@ def img2patches(img, m_grid, s, to_tensor=True):
     if to_tensor:
         img_batch = torch.tensor(img_batch)
 
-    return img_batch
+    #return img_batch
+    return patch_
 
 
 def patches2img(img_batch, m_grid, to_numpy=True):
