@@ -56,8 +56,9 @@ def init_weights(net, init_type='normal', init_gain=0.02):
     """
     def init_func(m):  # define the initialization function
         classname = m.__class__.__name__
-        if not hasattr(m, 'weight'):
-            print(classname)
+        if hasattr(m, 'weight'):
+            print("yyyyyyyyyyyyyyy")
+            print(m.weight)
         """
         classname = m.__class__.__name__
         if hasattr(m, 'weight') and (classname.find('Conv') != -1 or classname.find('Linear') != -1):
