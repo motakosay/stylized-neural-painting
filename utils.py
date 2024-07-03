@@ -155,10 +155,8 @@ def set_requires_grad(nets, requires_grad=False):
     for net in nets:
         if net is not None:
             for param in net.parameters():
-                print(param)
-                """
+
                 param.requires_grad = requires_grad
-                """
 
 
 def make_numpy_grid(tensor_data):
