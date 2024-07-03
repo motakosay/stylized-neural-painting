@@ -56,7 +56,7 @@ def init_weights(net, init_type='normal', init_gain=0.02):
     """
     def init_func(m):  # define the initialization function
         classname = m.__class__.__name__
-        if hasattr(m, 'weight'):
+        if not hasattr(m, 'weight'):
             print(classname)
         """
         classname = m.__class__.__name__
