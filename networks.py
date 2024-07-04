@@ -63,6 +63,7 @@ def init_weights(net, init_type='normal', init_gain=0.02):
         classname = m.__class__.__name__
         if hasattr(m, 'weight') and (classname.find('Conv') != -1 or classname.find('Linear') != -1):
             if init_type == 'normal':
+                print("same_or_not", m.weight.data)
                 init.normal_(m.weight.data, 0.0, init_gain)
                 print("after", m.weight.data)
             elif init_type == 'xavier':
