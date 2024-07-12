@@ -88,6 +88,12 @@ class Renderer():
         cy = (index // self.CANVAS_WIDTH) / self.CANVAS_WIDTH
         cx = (index % self.CANVAS_WIDTH) / self.CANVAS_WIDTH
 
+        print("cy", cy)
+        print("cx", cx)
+        print("index", index)
+        print("map_h", map_h)
+        print("map_w", map_w)
+
         if self.renderer in ['markerpen']:
             # x0, y0, x1, y1, x2, y2, radius0, radius2, R, G, B, A
             x0, y0, x1, y1, x2, y2 = cx, cy, cx, cy, cx, cy
