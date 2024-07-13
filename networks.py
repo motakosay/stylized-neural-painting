@@ -244,6 +244,7 @@ class PixelShuffleNet_32(nn.Module):
 
 class HuangNet(nn.Module):
     def __init__(self, rdrr):
+            print(self)
         super(HuangNet, self).__init__()
         self.rdrr = rdrr
         self.out_size = 128
