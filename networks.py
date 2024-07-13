@@ -289,7 +289,6 @@ class ZouFCNFusion(nn.Module):
     def forward(self, x):
         x_shape = x[:, 0:self.rdrr.d_shape, :, :]
         x_alpha = x[:, [-1], :, :]
-        print("x_alpha", x_alpha)
         if self.rdrr.renderer in ['oilpaintbrush', 'airbrush']:
             x_alpha = torch.tensor(1.0).to(device)
 
