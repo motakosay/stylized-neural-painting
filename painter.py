@@ -42,11 +42,11 @@ class PainterBase():
         self.output_dir = args.output_dir
         self.lr = args.lr
 
-        # define the loss functions
+         define the loss functions
         self._pxl_loss = loss.PixelLoss(p=1)
         self._sinkhorn_loss = loss.SinkhornLoss(epsilon=0.01, niter=5, normalize=False)
 
-        # some other vars to be initialized in child classes
+         some other vars to be initialized in child classes
         self.input_aspect_ratio = None
         self.img_path = None
         self.img_batch = None
@@ -252,13 +252,12 @@ class PainterBase():
 
         v = torch.reshape(self.x[:, 0:self.anchor_id+1, :],
                           [self.m_grid*self.m_grid*(self.anchor_id+1), -1, 1, 1])
-        #self.G_pred_foregrounds, self.G_pred_alphas = self.net_G(v)
-        self.G_pred_alphas = self.net_G(v)
+        self.G_pred_foregrounds, self.G_pred_alphas = self.net_G(v)
 
-        #self.G_pred_foregrounds = morphology.Dilation2d(m=1)(self.G_pred_foregrounds)
+        self.G_pred_foregrounds = morphology.Dilation2d(m=1)(self.G_pred_foregrounds)
         self.G_pred_alphas = morphology.Erosion2d(m=1)(self.G_pred_alphas)
 
-        #self.G_pred_foregrounds = torch.reshape(
+        self.G_pred_foregrounds = torch.reshape(
             self.G_pred_foregrounds, [self.m_grid*self.m_grid, self.anchor_id+1, 3,
                                       self.net_G.out_size, self.net_G.out_size])
         self.G_pred_alphas = torch.reshape(
@@ -266,7 +265,7 @@ class PainterBase():
                                  self.net_G.out_size, self.net_G.out_size])
 
         for i in range(self.anchor_id+1):
-            #G_pred_foreground = self.G_pred_foregrounds[:, i]
+            G_pred_foreground = self.G_pred_foregrounds[:, i]
             G_pred_alpha = self.G_pred_alphas[:, i]
             self.G_pred_canvas = G_pred_foreground * G_pred_alpha \
                                  + self.G_pred_canvas * (1 - G_pred_alpha)
