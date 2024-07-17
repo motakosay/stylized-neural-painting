@@ -46,7 +46,7 @@ class PainterBase():
         self._pxl_loss = loss.PixelLoss(p=1)
         self._sinkhorn_loss = loss.SinkhornLoss(epsilon=0.01, niter=5, normalize=False)
 
-         some other vars to be initialized in child classes
+        #some other vars to be initialized in child classes
         self.input_aspect_ratio = None
         self.img_path = None
         self.img_batch = None
