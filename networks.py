@@ -294,7 +294,7 @@ class ZouFCNFusion(nn.Module):
 
         mask = self.huangnet(x_shape)
         #color, _ = self.dcgan(x)
-        color, _ = self.dcgan(0)
+        color, _ = self.dcgan("yt")
 
         return color * mask, x_alpha * mask
 
