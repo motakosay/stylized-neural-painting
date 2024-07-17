@@ -42,7 +42,7 @@ class PainterBase():
         self.output_dir = args.output_dir
         self.lr = args.lr
 
-         define the loss functions
+        #define the loss functions
         self._pxl_loss = loss.PixelLoss(p=1)
         self._sinkhorn_loss = loss.SinkhornLoss(epsilon=0.01, niter=5, normalize=False)
 
