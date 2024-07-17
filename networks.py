@@ -293,7 +293,8 @@ class ZouFCNFusion(nn.Module):
             x_alpha = torch.tensor(1.0).to(device)
 
         mask = self.huangnet(x_shape)
-        color, _ = self.dcgan(x)
+        #color, _ = self.dcgan(x)
+        color, _ = self.dcgan(0)
 
         return color * mask, x_alpha * mask
 
