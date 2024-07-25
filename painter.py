@@ -254,11 +254,7 @@ class PainterBase():
                           [self.m_grid*self.m_grid*(self.anchor_id+1), -1, 1, 1])
         self.G_pred_foregrounds, self.G_pred_alphas = self.net_G(v)
 
-        print("forefroundBefore", self.G_pred_foregrounds)
-
         self.G_pred_foregrounds = morphology.Dilation2d(m=1)(self.G_pred_foregrounds)
-
-        print("forefroundAfter", self.G_pred_foregrounds)
         
         self.G_pred_alphas = morphology.Erosion2d(m=1)(self.G_pred_alphas)
 
