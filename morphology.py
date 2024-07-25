@@ -39,6 +39,7 @@ class Dilation2d(nn.Module):
     def forward(self, x):
         batch_size, c, h, w = x.shape
         x_pad = F.pad(x, pad=self.pad, mode='constant', value=-1e9)
+        print(x_pad)
         for i in range(c):
             channel = self.unfold(x_pad[:, [i], :, :])
             channel = torch.max(channel, dim=1, keepdim=True)[0]
