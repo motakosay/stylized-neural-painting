@@ -37,7 +37,6 @@ class Dilation2d(nn.Module):
         self.unfold = nn.Unfold(2*m+1, padding=0, stride=1)
 
     def forward(self, x):
-        print("YES!!!!!!!!!")
         batch_size, c, h, w = x.shape
         x_pad = F.pad(x, pad=self.pad, mode='constant', value=-1e9)
         for i in range(c):
