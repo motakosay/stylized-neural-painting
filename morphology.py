@@ -41,7 +41,6 @@ class Dilation2d(nn.Module):
         x_pad = F.pad(x, pad=self.pad, mode='constant', value=-1e9)
         for i in range(c):
             channel = self.unfold(x_pad[:, [i], :, :])
-            print("is it tensor?", channel)
             channel = torch.max(channel, dim=1, keepdim=True)[0]
             channel = channel.view([batch_size, 1, h, w])
             x[:, [i], :, :] = channel
