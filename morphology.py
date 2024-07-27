@@ -16,8 +16,10 @@ class Erosion2d(nn.Module):
 
     def forward(self, x):
         batch_size, c, h, w = x.shape
+        print(c)
         x_pad = F.pad(x, pad=self.pad, mode='constant', value=1e9)
         for i in range(c):
+            print(i)
             channel = self.unfold(x_pad[:, [i], :, :])
             channel = torch.min(channel, dim=1, keepdim=True)[0]
             channel = channel.view([batch_size, 1, h, w])
