@@ -301,6 +301,7 @@ class Painter(PainterBase):
 
     def _drawing_step_states(self):
         acc = self._compute_acc().item()
+        print(acc)
         print('iteration step %d, G_loss: %.5f, step_psnr: %.5f, strokes: %d / %d'
               % (self.step_id, self.G_loss.item(), acc,
                  (self.anchor_id+1)*self.m_grid*self.m_grid,
