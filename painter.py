@@ -78,11 +78,11 @@ class PainterBase():
 
     def _compute_acc(self):
 
-        print("ok!")
-
         target = self.img_batch.detach()
         canvas = self.G_pred_canvas.detach()
         psnr = utils.cpt_batch_psnr(canvas, target, PIXEL_MAX=1.0)
+
+        print(psnr)
 
         return psnr
 
