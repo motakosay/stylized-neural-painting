@@ -42,6 +42,7 @@ class Dilation2d(nn.Module):
         for i in range(c):
             channel = self.unfold(x_pad[:, [i], :, :])
             channel = torch.max(channel, dim=1, keepdim=True)[0]
+            print(channel)
             channel = channel.view([batch_size, 1, h, w])
             x[:, [i], :, :] = channel
 
