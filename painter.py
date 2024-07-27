@@ -82,7 +82,7 @@ class PainterBase():
         canvas = self.G_pred_canvas.detach()
         psnr = utils.cpt_batch_psnr(canvas, target, PIXEL_MAX=1.0)
 
-        print(psnr[0].item())
+        print(psnr.item())
 
         return psnr
 
