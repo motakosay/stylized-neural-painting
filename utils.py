@@ -251,7 +251,7 @@ def img2patches(img, m_grid, s, to_tensor=True):
             
             img_batch[y_id * m_grid + x_id, :, :, :] = patch
 
-            print("y_id", y_id, "m_grid" , m_grid, "x_id" ,x_id)
+            print("img_batch", img_batch.shape, "patch", patch.shape)
 
     if to_tensor:
         img_batch = torch.tensor(img_batch)
