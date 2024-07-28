@@ -247,6 +247,7 @@ def img2patches(img, m_grid, s, to_tensor=True):
         for x_id in range(m_grid):
             patch = img.transpose([2, 0, 1])
             print(patch)
+            print(patch.shape)
             #patch = img[y_id * s:y_id * s + s,
                     #x_id * s:x_id * s + s, :].transpose([2, 0, 1])
             
