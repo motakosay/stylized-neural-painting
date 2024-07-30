@@ -85,8 +85,6 @@ class Renderer():
 
         index = np.random.choice(range(err_map.size), size=1, p=err_map.ravel())[0]
 
-        print(range(err_map.size))
-
         cy = (index // self.CANVAS_WIDTH) / self.CANVAS_WIDTH
         cx = (index % self.CANVAS_WIDTH) / self.CANVAS_WIDTH
 
