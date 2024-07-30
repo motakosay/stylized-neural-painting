@@ -85,6 +85,8 @@ class Renderer():
 
         index = np.random.choice(range(err_map.size), size=1, p=err_map.ravel())[0]
 
+        print(index)
+
         cy = (index // self.CANVAS_WIDTH) / self.CANVAS_WIDTH
         cx = (index % self.CANVAS_WIDTH) / self.CANVAS_WIDTH
 
@@ -111,7 +113,6 @@ class Renderer():
             wh = _random_floats(0.1, 0.25, 2)
             theta = _random_floats(0, 1, 1)
             color = img[int(cy*map_h), int(cx*map_w), :].tolist()
-            print("imgShape", img.shape)
             color = color + color
             alpha = _random_floats(0.98, 1.0, 1)
             self.stroke_params = np.array(x + wh + theta + color + alpha, dtype=np.float32)
