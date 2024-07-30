@@ -257,6 +257,7 @@ class PainterBase():
 
         self.G_pred_foregrounds = self.G_pred_foregrounds.squeeze()
         self.G_pred_foregrounds = self.G_pred_foregrounds.permute(1, 2, 0)
+        self.G_pred_foregrounds = self.G_pred_foregrounds.detach().numpy()
         plt.imshow(self.G_pred_foregrounds), plt.title('generated')
         plt.show()
 
