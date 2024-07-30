@@ -254,12 +254,7 @@ class PainterBase():
         v = torch.reshape(self.x[:, 0:self.anchor_id+1, :],
                           [self.m_grid*self.m_grid*(self.anchor_id+1), -1, 1, 1])
         
-        self.G_pred_foregrounds = self.G_pred_foregrounds.squeeze()
-        self.G_pred_foregrounds = self.G_pred_foregrounds.permute(1, 2, 0)
-        self.G_pred_foregrounds = self.G_pred_foregrounds.detach().numpy()
-        plt.imshow(self.G_pred_foregrounds), plt.title('generated')
-        plt.show()
-        """
+        
         self.G_pred_foregrounds, self.G_pred_alphas = self.net_G(v)
 
         self.G_pred_foregrounds = morphology.Dilation2d(m=1)(self.G_pred_foregrounds)
@@ -280,7 +275,7 @@ class PainterBase():
                                  + self.G_pred_canvas * (1 - G_pred_alpha)
 
         self.G_final_pred_canvas = self.G_pred_canvas
-        """
+        
 
 
 
