@@ -111,9 +111,9 @@ class Renderer():
             wh = _random_floats(0.1, 0.25, 2)
             theta = _random_floats(0, 1, 1)
             color = img[int(cy*map_h), int(cx*map_w), :].tolist()
-            print("one_color", color)
+            print("calulations", "cy*map_h", cy*map_h)
+            print("calulations", "cx*map_w", cx*map_w)
             color = color + color
-            print("AddingColor", color)
             alpha = _random_floats(0.98, 1.0, 1)
             self.stroke_params = np.array(x + wh + theta + color + alpha, dtype=np.float32)
         elif self.renderer in ['rectangle']:
