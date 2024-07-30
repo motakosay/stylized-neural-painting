@@ -73,7 +73,6 @@ class PainterBase():
             self.net_G.load_state_dict(checkpoint['model_G_state_dict'])
             self.net_G.to(device)
             self.net_G.eval()
-            print("end")
         else:
             print('pre-trained renderer does not exist...')
             exit()
