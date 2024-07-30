@@ -113,6 +113,7 @@ class Renderer():
             color = img[int(cy*map_h), int(cx*map_w), :].tolist()
             print("calulations", "cy*map_h", cy*map_h)
             print("calulations", "cx*map_w", cx*map_w)
+            print("cx", cx, "cy", cy, "map_h", map_h, "map_w", map_w)
             color = color + color
             alpha = _random_floats(0.98, 1.0, 1)
             self.stroke_params = np.array(x + wh + theta + color + alpha, dtype=np.float32)
