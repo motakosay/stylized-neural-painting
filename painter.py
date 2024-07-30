@@ -255,9 +255,7 @@ class PainterBase():
                           [self.m_grid*self.m_grid*(self.anchor_id+1), -1, 1, 1])
         
         
-        #self.G_pred_foregrounds, self.G_pred_alphas = self.net_G(v)
-        self.G_pred_foregrounds, self.G_pred_alphas = self.net_G("Test")
-
+        self.G_pred_foregrounds, self.G_pred_alphas = self.net_G(v)
 
         self.G_pred_foregrounds = morphology.Dilation2d(m=1)(self.G_pred_foregrounds)
         
