@@ -255,7 +255,10 @@ class PainterBase():
                           [self.m_grid*self.m_grid*(self.anchor_id+1), -1, 1, 1])
         self.G_pred_foregrounds, self.G_pred_alphas = self.net_G(v)
 
-        print(self.G_pred_foregrounds)
+        self.G_pred_foregrounds = self.G_pred_foregrounds.squeeze()
+        self.G_pred_foregrounds = self.G_pred_foregrounds.permute(1, 2, 0)
+        plt.imshow(self.G_pred_foregrounds), plt.title('generated')
+        plt.show()
 
         self.G_pred_foregrounds = morphology.Dilation2d(m=1)(self.G_pred_foregrounds)
         
