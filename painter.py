@@ -68,6 +68,8 @@ class PainterBase():
             checkpoint = torch.load(os.path.join(self.renderer_checkpoint_dir, 'last_ckpt.pt'),
                                 map_location=None if torch.cuda.is_available() else device)
 
+            print(checkpoint['model_G_state_dict'])
+
             # update net_G states
             self.net_G.load_state_dict(checkpoint['model_G_state_dict'])
             self.net_G.to(device)
