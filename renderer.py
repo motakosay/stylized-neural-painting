@@ -112,10 +112,8 @@ class Renderer():
             theta = _random_floats(0, 1, 1)
             color = img[int(cy*map_h), int(cx*map_w), :].tolist()
             color = color + color
-            print("color_pixel", color)
             alpha = _random_floats(0.98, 1.0, 1)
             self.stroke_params = np.array(x + wh + theta + color + alpha, dtype=np.float32)
-            print("Where is color?", self.stroke_params)
         elif self.renderer in ['rectangle']:
             # xc, yc, w, h, theta, R, G, B, A
             x = [cx, cy]
