@@ -291,6 +291,7 @@ class ZouFCNFusion(nn.Module):
         x_alpha = x[:, [-1], :, :]
         if self.rdrr.renderer in ['oilpaintbrush', 'airbrush']:
             x_alpha = torch.tensor(1.0).to(device)
+            print(x_alpha)
 
         mask = self.huangnet(x_shape)
         color, _ = self.dcgan(x)
