@@ -209,8 +209,6 @@ class PainterBase():
             self.rderr.d_alpha).astype(np.float32)
         self.x_alpha = torch.tensor(self.x_alpha).to(device)
 
-        print("self.x_ctt.shape" ,self.x_ctt.shape, "self.x_color.shape" ,self.x_color.shape, "self.x_alpha.shape" ,self.x_alpha.shape)
-
 
     def stroke_sampler(self, anchor_id):
 
