@@ -229,8 +229,6 @@ class PainterBase():
             self.rderr.random_stroke_params_sampler(
                 err_map=this_err_map, img=this_img)
 
-            print("self.x_ctt.data", self.x_ctt.data.shape)
-
             self.x_ctt.data[i, anchor_id, :] = torch.tensor(
                 self.rderr.stroke_params[0:self.rderr.d_shape])
             self.x_color.data[i, anchor_id, :] = torch.tensor(
