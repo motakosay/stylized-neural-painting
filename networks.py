@@ -201,9 +201,11 @@ class PixelShuffleNet(nn.Module):
         self.pixel_shuffle = nn.PixelShuffle(2)
 
     def forward(self, x):
+        print("before_squeeze", x.shape)
         x = x.squeeze()
-        print(x.shape)
+        print("after_squeeze", x.shape)
         x = F.relu(self.fc1(x))
+        print("first_relu", x.shape)
         x = F.relu(self.fc2(x))
         x = F.relu(self.fc3(x))
         x = F.relu(self.fc4(x))
