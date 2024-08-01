@@ -202,6 +202,10 @@ class PixelShuffleNet(nn.Module):
 
     def forward(self, x):
         x = x.squeeze()
+        
+        plt.imshow(x), plt.title('x_alpha * mask')
+        plt.show()
+        
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = F.relu(self.fc3(x))
