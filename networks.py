@@ -304,7 +304,7 @@ class ZouFCNFusion(nn.Module):
 
         result = color * mask
 
-        plt.imshow(result), plt.title('result')
+        plt.imshow(mask), plt.title('result')
         plt.show()
 
         return color * mask, x_alpha * mask
