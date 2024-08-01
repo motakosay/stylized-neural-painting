@@ -295,16 +295,16 @@ class ZouFCNFusion(nn.Module):
         mask = self.huangnet(x_shape)
         color, _ = self.dcgan(x)
 
-        mask = mask.squeeze().permute(1,2,0)
-        mask = mask.detach().numpy()
+        mask_show = mask.squeeze().permute(1,2,0)
+        mask_show = mask_show.detach().numpy()
 
-        color = color.squeeze().permute(1,2,0)
+        color_show = color.squeeze().permute(1,2,0)
 
-        color = color.detach().numpy()
+        color_show = color_show.detach().numpy()
 
-        result = color * mask
+        result = color_show * mask_show
 
-        plt.imshow(mask), plt.title('mask')
+        plt.imshow(mask_show), plt.title('mask')
         plt.show()
 
         return color * mask, x_alpha * mask
