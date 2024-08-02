@@ -204,13 +204,13 @@ class PixelShuffleNet(nn.Module):
         print(x.shape)
         x = x.squeeze()
         x = F.relu(self.fc1(x))
-
-        x_view = x.view(16, 32)
+        x = F.relu(self.fc2(x))
+        
+        x_view = x.view(512, 512)
         x_view = x_view.detach().numpy()
         plt.imshow(x_view), plt.title('x_view')
         plt.show()
         
-        x = F.relu(self.fc2(x))
         x = F.relu(self.fc3(x))
         x = F.relu(self.fc4(x))
         x = x.view(-1, 16, 16, 16)
