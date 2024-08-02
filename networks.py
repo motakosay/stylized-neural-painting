@@ -206,7 +206,7 @@ class PixelShuffleNet(nn.Module):
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         
-        x_view = x.view(512, 512)
+        x_view = x.view(32, 32)
         x_view = x_view.detach().numpy()
         plt.imshow(x_view), plt.title('x_view')
         plt.show()
