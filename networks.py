@@ -209,12 +209,10 @@ class PixelShuffleNet(nn.Module):
         x = x.view(-1, 16, 16, 16)
         x = F.relu(self.conv1(x))
 
-        print(x.shape)
-
-        #x_view = x.view(32, 32)
-        #x_view = x_view.detach().numpy()
-        #plt.imshow(x_view), plt.title('x_view')
-        #plt.show()
+        x_view = x[0, 0, :, :]
+        x_view = x_view.detach().numpy()
+        plt.imshow(x_view), plt.title('x_view')
+        plt.show()
         
         x = self.pixel_shuffle(self.conv2(x))
         x = F.relu(self.conv3(x))
