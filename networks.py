@@ -203,8 +203,13 @@ class PixelShuffleNet(nn.Module):
     def forward(self, x):
         print(x.shape)
         x = x.squeeze()
-        print(x.shape)
         x = F.relu(self.fc1(x))
+
+        tensor_2d = x.view(16, 32)
+        
+        plt.imshow(tensor_2d), plt.title('tensor_2d')
+        plt.show()
+        
         x = F.relu(self.fc2(x))
         x = F.relu(self.fc3(x))
         x = F.relu(self.fc4(x))
