@@ -69,7 +69,7 @@ class PainterBase():
                                 map_location=None if torch.cuda.is_available() else device)
 
             # update net_G states
-            print("huangnet.conv2.weight" , checkpoint['model_G_state_dict']['huangnet.conv2.weight'].shape)
+            print("huangnet.conv2.weight" , checkpoint['model_G_state_dict']['huangnet.conv3.weight'].shape)
             self.net_G.load_state_dict(checkpoint['model_G_state_dict'])
             self.net_G.to(device)
             self.net_G.eval()
