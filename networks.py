@@ -117,34 +117,34 @@ class DCGAN(nn.Module):
         input_nc = rdrr.d
         self.out_size = 128
         self.main = nn.Sequential(
-            # input is Z, going into a convolution
+            # input is Z, going into a convolution #comment
             nn.ConvTranspose2d(input_nc, ngf * 8, 4, 1, 0, bias=False),
             nn.BatchNorm2d(ngf * 8),
             nn.ReLU(True),
-            # state size. (ngf*8) x 4 x 4
+            # state size. (ngf*8) x 4 x 4 #comment
 
-            nn.ConvTranspose2d(ngf * 8, ngf * 8, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(ngf * 8),
-            nn.ReLU(True),
-            # state size. (ngf*4) x 8 x 8
+            #nn.ConvTranspose2d(ngf * 8, ngf * 8, 4, 2, 1, bias=False),
+            #nn.BatchNorm2d(ngf * 8),
+            #nn.ReLU(True),
+            # state size. (ngf*4) x 8 x 8 #comment
 
-            nn.ConvTranspose2d(ngf * 8, ngf * 4, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(ngf * 4),
-            nn.ReLU(True),
-            # state size. (ngf*2) x 16 x 16
+            #nn.ConvTranspose2d(ngf * 8, ngf * 4, 4, 2, 1, bias=False),
+            #nn.BatchNorm2d(ngf * 4),
+            #nn.ReLU(True),
+            # state size. (ngf*2) x 16 x 16 #comment
 
-            nn.ConvTranspose2d(ngf * 4, ngf * 2, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(ngf * 2),
-            nn.ReLU(True),
-            # state size. (ngf*2) x 32 x 32
+            #nn.ConvTranspose2d(ngf * 4, ngf * 2, 4, 2, 1, bias=False),
+            #nn.BatchNorm2d(ngf * 2),
+            #nn.ReLU(True),
+            # state size. (ngf*2) x 32 x 32 #comment
 
-            nn.ConvTranspose2d(ngf * 2, ngf, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(ngf),
-            nn.ReLU(True),
-            # state size. (ngf*2) x 64 x 64
+            #nn.ConvTranspose2d(ngf * 2, ngf, 4, 2, 1, bias=False),
+            #nn.BatchNorm2d(ngf),
+            #nn.ReLU(True),
+            # state size. (ngf*2) x 64 x 64 #comment
 
-            nn.ConvTranspose2d(ngf, 6, 4, 2, 1, bias=False),
-            # state size. (nc) x 128 x 128
+            #nn.ConvTranspose2d(ngf, 6, 4, 2, 1, bias=False),
+            # state size. (nc) x 128 x 128 #comment
         )
 
     def forward(self, input):
