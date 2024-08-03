@@ -149,7 +149,8 @@ class DCGAN(nn.Module):
 
     def forward(self, input):
         output_tensor = self.main(input)
-        return output_tensor[:,0:3,:,:], output_tensor[:,3:6,:,:]
+        print(output_tensor.shape)
+        #return output_tensor[:,0:3,:,:], output_tensor[:,3:6,:,:]
 
 
 
