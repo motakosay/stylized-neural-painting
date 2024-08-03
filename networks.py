@@ -118,7 +118,7 @@ class DCGAN(nn.Module):
         self.out_size = 128
         self.main = nn.Sequential(
             # input is Z, going into a convolution
-            ahmed = nn.ConvTranspose2d(input_nc, ngf * 8, 4, 1, 0, bias=False),
+            nn.ConvTranspose2d(input_nc, ngf * 8, 4, 1, 0, bias=False),
             nn.BatchNorm2d(ngf * 8),
             nn.ReLU(True),
             # state size. (ngf*8) x 4 x 4
