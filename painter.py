@@ -238,6 +238,8 @@ class PainterBase():
 
     def _backward_x(self):
 
+        print("before_backward", self.x_ctt.data)
+
         self.G_loss = 0
         self.G_loss += self.args.beta_L1 * self._pxl_loss(
             canvas=self.G_final_pred_canvas, gt=self.img_batch)
@@ -245,6 +247,7 @@ class PainterBase():
             self.G_loss += self.args.beta_ot * self._sinkhorn_loss(
                 self.G_final_pred_canvas, self.img_batch)
         self.G_loss.backward()
+        print("after_backward", self.x_ctt.data)
 
 
     def _forward_pass(self):
