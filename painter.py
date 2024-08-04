@@ -241,8 +241,8 @@ class PainterBase():
         self.G_loss = 0
         self.G_loss += self.args.beta_L1 * self._pxl_loss(
             canvas=self.G_final_pred_canvas, gt=self.img_batch)
-        print("Hello")
         if self.args.with_ot_loss:
+            print("Hello")
             self.G_loss += self.args.beta_ot * self._sinkhorn_loss(
                 self.G_final_pred_canvas, self.img_batch)
         self.G_loss.backward()
