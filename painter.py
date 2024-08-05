@@ -219,7 +219,7 @@ class PainterBase():
             torch.abs(self.img_batch - self.G_final_pred_canvas),
             dim=1, keepdim=True).detach()
 
-        print(err_maps.shape)
+        print("err_maps", err_maps.shape)
 
         for i in range(self.m_grid*self.m_grid):
             this_err_map = err_maps[i,0,:,:].cpu().numpy()
