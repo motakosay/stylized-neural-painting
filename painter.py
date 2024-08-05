@@ -361,7 +361,7 @@ class ProgressivePainter(PainterBase):
                  self.m_grid, self.max_divide,
                  self.anchor_id + 1, self.m_strokes_per_block))
         vis2 = utils.patches2img(self.G_final_pred_canvas, self.m_grid).clip(min=0, max=1)
-        """
+
         if self.args.disable_preview:
             pass
         else:
@@ -370,11 +370,6 @@ class ProgressivePainter(PainterBase):
             cv2.imshow('G_pred', vis2[:,:,::-1])
             cv2.imshow('input', self.img_[:, :, ::-1])
             cv2.waitKey(1)
-        """
-
-        plt.imshow(vis2), plt.title('generated')
-        plt.show()
-
 
 class NeuralStyleTransfer(PainterBase):
 
