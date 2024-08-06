@@ -219,14 +219,6 @@ class PainterBase():
             torch.abs(self.img_batch - self.G_final_pred_canvas),
             dim=1, keepdim=True).detach()
 
-        try:
-            plt.imshow(err_maps[:, :, :, :])
-            plt.show()
-        except Exception as e:
-            print("Error:", e)
-            print("Shape of err_maps:", err_maps.shape)
-            pass
-
         for i in range(self.m_grid*self.m_grid):
             this_err_map = err_maps[i,0,:,:].cpu().numpy()
             ks = int(this_err_map.shape[0] / 8)
