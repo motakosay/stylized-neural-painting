@@ -218,6 +218,9 @@ class PainterBase():
         err_maps = torch.sum(
             torch.abs(self.img_batch - self.G_final_pred_canvas),
             dim=1, keepdim=True).detach()
+        
+        plt.imshow(err_maps[:, :, :])
+        plt.show()
 
         for i in range(self.m_grid*self.m_grid):
             this_err_map = err_maps[i,0,:,:].cpu().numpy()
@@ -225,9 +228,6 @@ class PainterBase():
             this_err_map = cv2.blur(this_err_map, (ks, ks))
             this_err_map = this_err_map ** 4
             this_img = self.img_batch[i, :, :, :].detach().permute([1, 2, 0]).cpu().numpy()
-
-            plt.imshow(this_img[:, :, :]) #plt.imshow(this_img[:, :, 0]) is working
-            plt.show()
 
             self.rderr.random_stroke_params_sampler(
                 err_map=this_err_map, img=this_img)
