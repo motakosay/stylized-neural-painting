@@ -226,7 +226,7 @@ class PainterBase():
             this_err_map = this_err_map ** 4
             this_img = self.img_batch[i, :, :, :].detach().permute([1, 2, 0]).cpu().numpy()
 
-            plt.imshow(this_img[:, :, 0])
+            plt.imshow(this_img[:, :, :]) #plt.imshow(this_img[:, :, 0]) is working
             plt.show()
 
             self.rderr.random_stroke_params_sampler(
