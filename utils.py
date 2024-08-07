@@ -285,8 +285,6 @@ def create_transformed_brush(brush, canvas_w, canvas_h,
                       x0, y0, w, h, theta, R0, G0, B0, R2, G2, B2):
 
     brush_alpha = np.stack([brush, brush, brush], axis=-1)
-    print("brush_alpha_shape", brush_alpha.shape)
-    print("ahmed")
     brush_alpha = (brush_alpha > 0).astype(np.float32)
     brush_alpha = (brush_alpha*255).astype(np.uint8)
     colormap = np.zeros([brush.shape[0], brush.shape[1], 3], np.float32)
