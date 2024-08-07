@@ -130,6 +130,7 @@ class Renderer():
             r_ = max(self.stroke_params[6], self.stroke_params[7])
         elif self.renderer in ['oilpaintbrush']:
             r_ = max(self.stroke_params[2], self.stroke_params[3])
+            print("r_", r_)
         elif self.renderer in ['rectangle']:
             r_ = max(self.stroke_params[2], self.stroke_params[3])
         if r_ > 0.025:
