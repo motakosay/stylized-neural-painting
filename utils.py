@@ -286,10 +286,9 @@ def create_transformed_brush(brush, canvas_w, canvas_h,
 
     brush_alpha = np.stack([brush, brush, brush], axis=-1)
     brush_alpha = (brush_alpha > 0).astype(np.float32)
-    plt.imshow(brush_alpha), plt.title('brush_alpha')
-    plt.show()
     brush_alpha = (brush_alpha*255).astype(np.uint8)
     colormap = np.zeros([brush.shape[0], brush.shape[1], 3], np.float32)
+    print("colormap", colormap)
     for ii in range(brush.shape[0]):
         t = ii / brush.shape[0]
         this_color = [(1 - t) * R0 + t * R2,
