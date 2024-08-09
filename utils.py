@@ -308,6 +308,8 @@ def create_transformed_brush(brush, canvas_w, canvas_h,
     M = update_transformation_matrix(M, M3)
     M = update_transformation_matrix(M, M4)
 
+    print("theta", theta)
+
     brush = cv2.warpAffine(
         brush, M, (canvas_w, canvas_h),
         borderMode=cv2.BORDER_CONSTANT, flags=cv2.INTER_AREA)
