@@ -351,6 +351,7 @@ def build_transformation_matrix(transform):
     transform_matrix = np.zeros((2, 3))
 
     transform_matrix[0, 0] = np.cos(transform[2])
+    print("transform_matrix[0, 0]", transform_matrix[0, 0])
     transform_matrix[0, 1] = -np.sin(transform[2])
     transform_matrix[1, 0] = np.sin(transform[2])
     transform_matrix[1, 1] = np.cos(transform[2])
