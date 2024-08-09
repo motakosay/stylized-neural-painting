@@ -295,11 +295,9 @@ def create_transformed_brush(brush, canvas_w, canvas_h,
                       (1 - t) * B0 + t * B2]
         colormap[ii, :, :] = np.expand_dims(this_color, axis=0)
 
-    print("colormap_shape", colormap.shape)
-
     brush = np.expand_dims(brush, axis=-1).astype(np.float32) / 255.
     brush = (brush * colormap * 255).astype(np.uint8)
-    # plt.imshow(brush), plt.show()
+    plt.imshow(brush), plt.show() #this inside original code!
 
     M1 = build_transformation_matrix([-brush.shape[1]/2, -brush.shape[0]/2, 0])
     M2 = build_scale_matrix(sx=w/brush.shape[1], sy=h/brush.shape[0])
