@@ -308,17 +308,12 @@ def create_transformed_brush(brush, canvas_w, canvas_h,
     M = update_transformation_matrix(M, M3)
     M = update_transformation_matrix(M, M4)
 
-    print("theta", theta)
-
     brush = cv2.warpAffine(
         brush, M, (canvas_w, canvas_h),
         borderMode=cv2.BORDER_CONSTANT, flags=cv2.INTER_AREA)
     brush_alpha = cv2.warpAffine(
         brush_alpha, M, (canvas_w, canvas_h),
         borderMode=cv2.BORDER_CONSTANT, flags=cv2.INTER_AREA)
-
-    #plt.imshow(brush), plt.show()
-    #plt.imshow(brush_alpha), plt.show()
 
     return brush, brush_alpha
 
@@ -351,7 +346,6 @@ def build_transformation_matrix(transform):
     transform_matrix = np.zeros((2, 3))
 
     transform_matrix[0, 0] = np.cos(transform[2])
-    print("transform_matrix[0, 0]", transform_matrix[0, 0])
     transform_matrix[0, 1] = -np.sin(transform[2])
     transform_matrix[1, 0] = np.sin(transform[2])
     transform_matrix[1, 1] = np.cos(transform[2])
