@@ -315,6 +315,9 @@ def create_transformed_brush(brush, canvas_w, canvas_h,
         brush_alpha, M1, (canvas_w, canvas_h),
         borderMode=cv2.BORDER_CONSTANT, flags=cv2.INTER_AREA)
 
+    plt.imshow(brush), plt.title('brush')
+    plt.show()
+
     return brush, brush_alpha
 
 
