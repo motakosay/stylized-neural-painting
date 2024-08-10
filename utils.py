@@ -308,10 +308,10 @@ def create_transformed_brush(brush, canvas_w, canvas_h,
     #M = update_transformation_matrix(M, M4)
 
     brush = cv2.warpAffine(
-        brush, M3, (canvas_w, canvas_h),
+        brush, M4, (canvas_w, canvas_h),
         borderMode=cv2.BORDER_CONSTANT, flags=cv2.INTER_AREA)
     brush_alpha = cv2.warpAffine(
-        brush_alpha, M3, (canvas_w, canvas_h),
+        brush_alpha, M4, (canvas_w, canvas_h),
         borderMode=cv2.BORDER_CONSTANT, flags=cv2.INTER_AREA)
 
     plt.imshow(brush), plt.title('brush')
