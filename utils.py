@@ -304,15 +304,15 @@ def create_transformed_brush(brush, canvas_w, canvas_h,
     M3 = build_transformation_matrix([0,0,theta])
     M4 = build_transformation_matrix([x0, y0, 0])
 
-    M = update_transformation_matrix(M1, M2)
-    M = update_transformation_matrix(M, M3)
-    M = update_transformation_matrix(M, M4)
+    #M = update_transformation_matrix(M1, M2)
+    #M = update_transformation_matrix(M, M3)
+    #M = update_transformation_matrix(M, M4)
 
     brush = cv2.warpAffine(
-        brush, M, (canvas_w, canvas_h),
+        brush, M1, (canvas_w, canvas_h),
         borderMode=cv2.BORDER_CONSTANT, flags=cv2.INTER_AREA)
     brush_alpha = cv2.warpAffine(
-        brush_alpha, M, (canvas_w, canvas_h),
+        brush_alpha, M1, (canvas_w, canvas_h),
         borderMode=cv2.BORDER_CONSTANT, flags=cv2.INTER_AREA)
 
     return brush, brush_alpha
