@@ -151,10 +151,13 @@ def set_requires_grad(nets, requires_grad=False):
         requires_grad (bool)  -- whether the networks require gradients or not
     """
     if not isinstance(nets, list):
+        print("nets not list")
         nets = [nets]
     for net in nets:
         if net is not None:
             for param in net.parameters():
+
+                print("one of param!", param)
 
                 param.requires_grad = requires_grad
 
