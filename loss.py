@@ -21,13 +21,7 @@ class PixelLoss(nn.Module):
         if ignore_color:
             canvas = torch.mean(canvas, dim=1)
             gt = torch.mean(gt, dim=1)
-        test = torch.abs(canvas-gt)
-        mean_test = (test.sum())/test.numel()
-        print("canvas", canvas.shape)
-        print("gt", gt.shape)
-        print("mean_test", mean_test)
         loss = torch.mean(torch.abs(canvas-gt)**self.p)
-        print("loss", loss)
         return loss
 
 
