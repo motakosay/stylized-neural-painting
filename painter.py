@@ -256,11 +256,11 @@ class PainterBase():
         
         self.G_pred_foregrounds, self.G_pred_alphas = self.net_G(v)
 
-        print("is_change??1", self.G_pred_foregrounds)
+        print("is_change??1", self.G_pred_foregrounds.shape)
 
         self.G_pred_foregrounds = morphology.Dilation2d(m=1)(self.G_pred_foregrounds)
 
-        print("is_change??2", self.G_pred_foregrounds)
+        print("is_change??2", self.G_pred_foregrounds.shape)
         
         self.G_pred_alphas = morphology.Erosion2d(m=1)(self.G_pred_alphas)
 
@@ -268,7 +268,7 @@ class PainterBase():
             self.G_pred_foregrounds, [self.m_grid*self.m_grid, self.anchor_id+1, 3,
                                       self.net_G.out_size, self.net_G.out_size])
 
-        print("is_change??3", self.G_pred_foregrounds)
+        print("is_change??3", self.G_pred_foregrounds.shape)
         
         self.G_pred_alphas = torch.reshape(
             self.G_pred_alphas, [self.m_grid*self.m_grid, self.anchor_id+1, 3,
@@ -276,13 +276,13 @@ class PainterBase():
 
         for i in range(self.anchor_id+1):
             G_pred_foreground = self.G_pred_foregrounds[:, i]
-            print("is_change??4", self.G_pred_foregrounds)
+            print("is_change??4", self.G_pred_foregrounds.shape)
             G_pred_alpha = self.G_pred_alphas[:, i]
             self.G_pred_canvas = G_pred_foreground * G_pred_alpha \
                                  + self.G_pred_canvas * (1 - G_pred_alpha)
-            print("is_change??5", self.G_pred_canvas)
+            print("is_change??5", self.G_pred_canvas.shape)
 
-        print("is_change??6", self.G_pred_canvas)
+        print("is_change??6", self.G_pred_canvas.shape)
         self.G_final_pred_canvas = self.G_pred_canvas
         
 
