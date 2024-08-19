@@ -254,13 +254,7 @@ class PainterBase():
         v = torch.reshape(self.x[:, 0:self.anchor_id+1, :],
                           [self.m_grid*self.m_grid*(self.anchor_id+1), -1, 1, 1])
         
-        
         self.G_pred_foregrounds, self.G_pred_alphas = self.net_G(v)
-
-        print("nee_G_pred_foregrounds", self.G_pred_foregrounds.shape)
-
-        #plt.imshow(self.G_pred_foregrounds), plt.title('generated')
-        #plt.show()
 
         self.G_pred_foregrounds = morphology.Dilation2d(m=1)(self.G_pred_foregrounds)
         
