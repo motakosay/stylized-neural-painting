@@ -257,10 +257,10 @@ class PainterBase():
         
         self.G_pred_foregrounds, self.G_pred_alphas = self.net_G(v)
 
-        print("G_pred_foregrounds", self.G_pred_foregrounds.shape)
+        print("nee_G_pred_foregrounds", self.G_pred_foregrounds.shape)
 
-        plt.imshow(self.G_pred_foregrounds), plt.title('generated')
-        plt.show()
+        #plt.imshow(self.G_pred_foregrounds), plt.title('generated')
+        #plt.show()
 
         self.G_pred_foregrounds = morphology.Dilation2d(m=1)(self.G_pred_foregrounds)
         
