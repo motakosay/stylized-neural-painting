@@ -270,7 +270,6 @@ class PainterBase():
 
         for i in range(self.anchor_id+1):
             G_pred_foreground = self.G_pred_foregrounds[:, i]
-            print("is_change??4", self.G_pred_foregrounds.shape)
             G_pred_alpha = self.G_pred_alphas[:, i]
             self.G_pred_canvas = G_pred_foreground * G_pred_alpha \
                                  + self.G_pred_canvas * (1 - G_pred_alpha)
