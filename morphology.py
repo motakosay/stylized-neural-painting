@@ -1,6 +1,3 @@
-import sys
-sys.path.append('/content/pytorch')
-
 import math
 import pdb
 import torch
