@@ -1,6 +1,3 @@
-import sys
-sys.path.append('/content/pytorch')
-
 import os
 import cv2
 import random
