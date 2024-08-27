@@ -21,6 +21,7 @@ class PixelLoss(nn.Module):
         if ignore_color:
             canvas = torch.mean(canvas, dim=1)
             gt = torch.mean(gt, dim=1)
+        gt.requires_grad_(True)
         loss = torch.mean(torch.abs(canvas-gt)**self.p)
         grad_dloss_dgt = torch.autograd.grad(loss, gt, grad_outputs=torch.ones_like(loss), retain_graph=True)[0]
         print("Manual dloss/dgt:", grad_dloss_dgt)
