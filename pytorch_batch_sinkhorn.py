@@ -5,8 +5,6 @@ sinkhorn_pointcloud.py
 Discrete OT : Sinkhorn algorithm for point cloud marginals.
 
 """
-import sys
-sys.path.append('/content/pytorch')
 
 import torch
 from torch.autograd import Variable
