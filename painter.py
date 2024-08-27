@@ -260,9 +260,6 @@ class PainterBase():
         self.G_pred_foregrounds, self.G_pred_alphas = self.net_G(v)
 
         self.G_pred_foregrounds = morphology.Dilation2d(m=1)(self.G_pred_foregrounds)
-        torch.save(self.G_pred_foregrounds, '/content/stylized-neural-painting/large_tensor.pt')
-        import sys
-        sys.exit()
 
         self.G_pred_alphas = morphology.Erosion2d(m=1)(self.G_pred_alphas)
 
