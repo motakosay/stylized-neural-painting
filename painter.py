@@ -244,7 +244,7 @@ class PainterBase():
         if self.args.with_ot_loss:
             self.G_loss += self.args.beta_ot * self._sinkhorn_loss(
                 self.G_final_pred_canvas, self.img_batch)
-        self.G_loss.backward()
+        self.G_loss.backward(retain_graph=True)
 
 
     def _forward_pass(self):
