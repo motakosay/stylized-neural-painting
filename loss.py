@@ -39,8 +39,6 @@ class PixelLoss(nn.Module):
         loss = torch.mean(torch.abs(canvas-gt)**self.p)
         #grad_dloss_dgt = torch.autograd.grad(loss, gt, grad_outputs=torch.ones_like(loss), retain_graph=True)[0]
         #print("Manual dloss/dgt:", grad_dloss_dgt)
-        if loss:
-            sys.exit()
         return loss
 
 
