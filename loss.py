@@ -27,10 +27,10 @@ class PixelLoss(nn.Module):
         print("canvas_v", canvas_v.shape)
         print("batch_v", batch_v.shape)
             
-        plt.imshow(canvas_v), plt.title('canvas')
+        plt.imshow(canvas_v.detach().numpy()), plt.title('canvas')
         plt.show()
             
-        plt.imshow(batch_v), plt.title('gen_batch')
+        plt.imshow(batch_v.detach().numpy()), plt.title('gen_batch')
         plt.show()
         if ignore_color:
             canvas = torch.mean(canvas, dim=1)
