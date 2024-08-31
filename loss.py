@@ -23,6 +23,9 @@ class PixelLoss(nn.Module):
         batch_v = gt.squeeze()
         canvas_v = canvas_v.permute(1, 2, 0)
         batch_v = batch_v.permute(1, 2, 0)
+
+        print("canvas_v", canvas_v.shape)
+        print("batch_v", batch_v.shape)
             
         plt.imshow(canvas_v), plt.title('canvas')
         plt.show()
