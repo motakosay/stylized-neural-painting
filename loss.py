@@ -1,4 +1,5 @@
 import torch
+import sys
 import torch.nn as nn
 import torchvision
 import utils
@@ -18,27 +19,26 @@ class PixelLoss(nn.Module):
         self.p = p
 
     def forward(self, canvas, gt, ignore_color=False):
-        if self.first_execution:
-            canvas_v = canvas.squeeze()
-            batch_v = gt.squeeze()
-            canvas_v = canvas_v.permute(1, 2, 0)
-            batch_v = batch_v.permute(1, 2, 0)
+        canvas_v = canvas.squeeze()
+        batch_v = gt.squeeze()
+        canvas_v = canvas_v.permute(1, 2, 0)
+        batch_v = batch_v.permute(1, 2, 0)
             
-            plt.imshow(canvas_v), plt.title('canvas')
-            plt.show()
+        plt.imshow(canvas_v), plt.title('canvas')
+        plt.show()
             
-            plt.imshow(batch_v), plt.title('gen_batch')
-            plt.show()
-            if ignore_color:
-                canvas = torch.mean(canvas, dim=1)
-                gt = torch.mean(gt, dim=1)
-            gt.requires_grad_(True)
-            loss = torch.mean(torch.abs(canvas-gt)**self.p)
-            #grad_dloss_dgt = torch.autograd.grad(loss, gt, grad_outputs=torch.ones_like(loss), retain_graph=True)[0]
-            #print("Manual dloss/dgt:", grad_dloss_dgt)
-            return loss
-        else:
-            return None
+        plt.imshow(batch_v), plt.title('gen_batch')
+        plt.show()
+        if ignore_color:
+            canvas = torch.mean(canvas, dim=1)
+            gt = torch.mean(gt, dim=1)
+        gt.requires_grad_(True)
+        loss = torch.mean(torch.abs(canvas-gt)**self.p)
+        #grad_dloss_dgt = torch.autograd.grad(loss, gt, grad_outputs=torch.ones_like(loss), retain_graph=True)[0]
+        #print("Manual dloss/dgt:", grad_dloss_dgt)
+        if loss:
+            sys.exit()
+        return loss
 
 
 class VGGPerceptualLoss(torch.nn.Module):
