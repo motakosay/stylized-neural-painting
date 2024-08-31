@@ -239,7 +239,7 @@ class PainterBase():
     def _backward_x(self):
 
         self.G_loss = 0
-        print("what inside?Img_batch_shape", self.img_batch.shape)
+        print("what inside?Img_batch_shape", self.G_final_pred_canvas.shape)
         self.G_loss += self.args.beta_L1 * self._pxl_loss(
             canvas=self.G_final_pred_canvas, gt=self.img_batch)
         if self.args.with_ot_loss:
