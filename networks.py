@@ -193,6 +193,7 @@ class PixelShuffleNet(nn.Module):
         self.fc3 = (nn.Linear(1024, 2048))
         self.fc4 = (nn.Linear(2048, 4096))
         self.conv1 = (nn.Conv2d(16, 32, 3, 1, 1))
+        print("weights_conv2d", self.conv1.weight)
         self.conv2 = (nn.Conv2d(32, 32, 3, 1, 1))
         self.conv3 = (nn.Conv2d(8, 16, 3, 1, 1))
         self.conv4 = (nn.Conv2d(16, 16, 3, 1, 1))
