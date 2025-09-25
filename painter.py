@@ -66,7 +66,7 @@ class PainterBase():
             print('loading renderer from pre-trained checkpoint...')
             # load the entire checkpoint
             checkpoint = torch.load(os.path.join(self.renderer_checkpoint_dir, 'last_ckpt.pt'),
-                                map_location=None if torch.cuda.is_available() else device)
+                             map_location=torch.device('cuda'), weights_only=False)
             # update net_G states
             self.net_G.load_state_dict(checkpoint['model_G_state_dict'])
             self.net_G.to(device)
@@ -473,3 +473,4 @@ class NeuralStyleTransfer(PainterBase):
         out_img = cv2.resize(final_rendered_image, (out_w, out_h), cv2.INTER_AREA)
         plt.imsave(file_dir + '_style_transfer_' +
                    self.style_img_path.split('/')[-1][:-4] + '.png', out_img)
+
